@@ -44,27 +44,27 @@ Here are the main commands available in the Quote Manager CLI:
 
 1. Generate a random quote:
    ```
-   quote generate
+   poetry run quote generate
    ```
 
 2. Generate a quote by category:
    ```
-   quote generate --category "life"
+   poetry run quote generate --category "life"
    ```
 
 3. Add a new quote:
    ```
-   quote add --category "Wisdom" --text "Patience is a virtue."
+   poetry run quote add --category "Wisdom" --text "Patience is a virtue."
    ```
 
 4. List 5 quotes:
    ```
-   quote list
+   poetry run quote list-quotes
    ```
 
 5. List 5 quotes by category:
    ```
-   quote list --category "Humor"
+   poetry run quote list-quotes --category "Humor"
    ```
 
 ## Project Structure
@@ -73,9 +73,8 @@ Here are the main commands available in the Quote Manager CLI:
 Quote_Manager_CLI_Peter/
 │
 ├── pyproject.toml
+├──poetry.lock
 ├── README.md
-├── setup_db.py
-├── import_quotes.py
 │
 ├── src/
 │   ├── __init__.py
