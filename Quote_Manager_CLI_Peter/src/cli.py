@@ -64,6 +64,12 @@ error_logger.setLevel(logging.ERROR)
 error_handler = logging.FileHandler(error_log_file_path)
 error_logger.addHandler(error_handler)
 
+logger_handler = logging.FileHandler(log_file_path)
+logger = logging.getLogger('logger')
+logger.addHandler(logger_handler)
+
+
+
 @click.group()
 def cli():
     pass
@@ -95,6 +101,7 @@ def import_quotes(file_path:str):
             db.commit()
             click.echo(f"{no_data} data imported to database successfully from {file_path}")
             logging.info("Data imported to database successfully")
+            logger.info(f"{no_data} data imported to database successfully from {file_path}")
 
     except Exception as e:
         click.echo(f"Error occurred during database operation: {str(e)}")
@@ -139,6 +146,7 @@ def generate(category:str):
                     "category": quote.get("category"),
                     "author": quote.get("author")
                 })
+                logger.info(f"Quote generated successfully: {quote.get('quote')}")
             else:
                 click.echo("No quotes found.")
                 error_logger.error("No quotes could be generated")
@@ -150,7 +158,7 @@ def generate(category:str):
 @cli.command()
 @click.option("--category", required=True, help="Category of the quote")
 @click.option("--quote", required=True, help="The quote to be added")
-@click.option("--author", default=None, help="The author of the quote")
+@click.option("--author", default=None, help="The author of the quote") 
 def add(category:str,
                   quote:str,
                   author):
@@ -171,6 +179,7 @@ def add(category:str,
                             "author": author
                             })
                 logging.info(f"New quote: {quote} added successfully")
+                logger.info(f"New quote: {quote} added successfully")
 
             else:
                 click.echo("Please provide a quote and a category")
@@ -182,7 +191,7 @@ def add(category:str,
 
 @cli.command()
 @click.option("--category", default=None, help="Category of the quote")
-def list_quotes(category:str):
+def list_quotes(category:str): 
     """
     Lists 5 random quotes in the database if no category is provided
     else lists 5 random quotes in the category provided
@@ -205,6 +214,7 @@ def list_quotes(category:str):
                         "author": quote.author,
                         "category": quote.category
                     })
+                    logger.info(f"Quote: {quote.quote} listed successfully")
             else:
                 click.echo("No quotes found.")
                 error_logger.error("No quotes found in the database")
