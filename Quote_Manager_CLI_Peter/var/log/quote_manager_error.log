@@ -157,3 +157,7 @@ No quotes could be generated
 No quotes found in the database
 No quotes could be generated
 No quotes could be generated
+Error occurred during database operation: Invalid file path provided, File may not exist
+Error occurred during database operation: Invalid quote format
+No quotes could be generated
+No quotes found in the database
