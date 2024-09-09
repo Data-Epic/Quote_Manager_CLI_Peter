@@ -63,10 +63,7 @@ def create_log_file(
 
     else:
 
-        raise ValueError(
-            "Invalid input arguments. \
-                         Input arguments must be strings"
-        )
+        raise ValueError("Invalid input arguments. Input arguments must be strings")
 
 
 log_file_name = "quote_manager.log"
