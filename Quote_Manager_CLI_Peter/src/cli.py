@@ -136,15 +136,13 @@ def generate(category: Optional[str], author: Optional[str]) -> None:
                     click.echo(
                         {
                             "status": "error",
-                            "message": f"quotes for category:[{category}] \
-                and author:[{author}] are not found in the database",
+                            "message": f"quotes for category:[{category}] and author:[{author}] are not found in the database",
                         }
                     )
                     error_logger.error(
                         {
                             "status": "error",
-                            "message": f"quotes for category:[{category}] and \
-            author:[{author}] are not found in the database",
+                            "message": f"quotes for category:[{category}] and author:[{author}] are not found in the database",
                         }
                     )
 
@@ -166,15 +164,13 @@ def generate(category: Optional[str], author: Optional[str]) -> None:
                     click.echo(
                         {
                             "status": "error",
-                            "message": f"quotes for category:[{category}] \
-                                  are not found in the database",
+                            "message": f"quotes for category:[{category}] are not found in the database",
                         }
                     )
                     error_logger.error(
                         {
                             "status": "error",
-                            "message": f"quotes for category:[{category}] \
-                                  are not found in the database",
+                            "message": f"quotes for category:[{category}] are not found in the database",
                         }
                     )
                 quotes = db.query(Quote).filter(Quote.category == category).all()
@@ -190,15 +186,13 @@ def generate(category: Optional[str], author: Optional[str]) -> None:
                     click.echo(
                         {
                             "status": "error",
-                            "message": f"quotes by author:[{author}] are \
-                                not found in the database",
+                            "message": f"quotes by author:[{author}] are not found in the database",
                         }
                     )
                     error_logger.error(
                         {
                             "status": "error",
-                            "message": f"quotes by author:[{author}] are \
-                                not found in the database",
+                            "message": f"quotes by author:[{author}] are not found in the database",
                         }
                     )
 
