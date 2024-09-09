@@ -24,7 +24,7 @@ def create_log_file(
         isinstance(log_file_name, str)
         and isinstance(error_log_file_name, str)
         and isinstance(var_dir, str)
-    ):
+    ) is True:
 
         if log_file_name.endswith(".log") and error_log_file_name.endswith(".log"):
 
