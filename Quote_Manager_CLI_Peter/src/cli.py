@@ -74,15 +74,13 @@ def import_quotes(file_path: str) -> None:
             click.echo(
                 {
                     "status": "success",
-                    "message": f"{no_data} data imported to database \
-                        successfully from {file_path}",
+                    "message": f"{no_data} data imported to database from {file_path}",
                 }
             )
             logger.info(
                 {
                     "status": "success",
-                    "message": f"{no_data} data imported to \
-                        database successfully from {file_path}",
+                    "message": f"{no_data} data imported to database from {file_path}",
                 }
             )
 
