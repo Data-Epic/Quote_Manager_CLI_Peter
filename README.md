@@ -8,8 +8,11 @@ Quote Manager is a command-line interface (CLI) tool designed to manage and inte
 
 - Import quotes from a JSON file into a database
 - Generate random quotes, with optional category filtering
+- Generate random quotes, with optional author filtering
 - Add new quotes via the command line
-- List quotes, with optional category filtering
+- List quotes, with optional category and author filtering
+- List all categories
+- List all authors
 - Logging functionality for both general logs and error logs
 
 ## Installation
@@ -43,28 +46,52 @@ Quote Manager is a command-line interface (CLI) tool designed to manage and inte
 Here are the main commands available in the Quote Manager CLI:
 
 1. Generate a random quote:
+
    ```
    poetry run quote generate
    ```
 
 2. Generate a quote by category:
+
    ```
    poetry run quote generate --category "life"
    ```
+3. Generate a quote by author:
 
-3. Add a new quote:
    ```
-   poetry run quote add --category "Wisdom" --text "Patience is a virtue."
+   poetry run quote generate --author "Tom Clancy"
+   ```
+4. Add a new quote:
+
+   ```
+   poetry run quote add --category "Wisdom" --quote "Patience is a virtue." --author "Sogo"
    ```
 
 4. List 5 quotes:
+
    ```
    poetry run quote list-quotes
    ```
 
 5. List 5 quotes by category:
+
    ```
    poetry run quote list-quotes --category "Humor"
+   ```
+6. List 5 quotes by author:
+
+   ```
+   poetry run quote list-quotes --author "tom clancy"
+   ```
+7. List all categories:
+
+   ```
+   poetry run quote list-categories
+   ```
+8. List all authors:
+
+   ```
+   poetry run quote list-authors
    ```
 
 ## Project Structure
@@ -79,15 +106,17 @@ Quote_Manager_CLI_Peter/
 ├── src/
 │   ├── __init__.py
 │   ├── cli.py
-│   ├── models.py
+│   ├── logger_config.py
+    ├── models.py
 │   ├── database.py
 │   └── utils.py
 │
 ├── tests/
 │   ├── __init__.py
 │   ├── test_cli.py
-│   ├── test_models.py
+│   ├── test_database.py
 │   └── test_utils.py
+│   └── test_logger_config.py
 │
 └── data/
     └── quotes.json
